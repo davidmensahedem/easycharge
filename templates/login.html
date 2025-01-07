@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locate short-term rentals easily in Calgary</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='css/main.css') }}"
+    />
+  </head>
+
+  <body>
+    <header id="login-header">
+      <div class="">
+        <h3 class="text-center">EasyCharge</h3>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="container text-center logo-container">
+          <img
+            src="{{ url_for('static', filename='image/garagerendering.webp') }}"
+            alt="My GeoGuy Logo"
+            class="logo"
+          />
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            {% if message %}
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              role="alert"
+            >
+              {{ message }}
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <script>
+              setTimeout(function () {
+                $(".alert").alert("close");
+              }, 3000);
+            </script>
+            {% endif %}
+            <form
+              id="loginForm"
+              action="{{ url_for('login')}}"
+              method="post"
+              class="needs-validation"
+            >
+              <div class="form-group">
+                <label for="email" class="text-teal bolder">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password" class="text-teal bolder">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <p>
+                  Are you a new user?
+                  <a href="/register">Create account</a>
+                </p>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-block btn-primary">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container text-center">
+        <small>Developed by: David Mensah</small>
+        <small>&copy; <span id="showCopyrightDate">2024</span> Project.</small>
+      </div>
+    </footer>
+
+    <!-- Leaflet.js Map -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+      integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+      document.getElementById("showCopyrightDate").innerHTML =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
