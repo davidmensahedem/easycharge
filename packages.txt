@@ -1,0 +1,5 @@
+requests==2.31.0
+Flask==2.3.2
+Flask-Cors==3.0.10
+SQLAlchemy==2.0.19
+Flask-Session==0.5.0
