@@ -17,7 +17,6 @@ app.config['JSON_SORT_KEYS'] = False
 CORS(app)  
 
 
-# Check for environment variable 
 #set os environment variable
 os.environ["DATABASE_URL"] = "postgresql://postgres:postgres@localhost:5432/test"
 
@@ -155,7 +154,7 @@ def profile():
         return render_template("profile.html", user_name=session.get("user_name"), user_email=session.get("user_email"), user_id=session.get("user_id"))
 
 
-
+# Get Police Stations Data
 @app.route('/api/police-stations', methods=['GET'])
 def get_police_stations_data():
     # Forward request to the actual API
@@ -170,7 +169,7 @@ def get_police_stations_data():
     
 
 
-
+# Get City Vehicle Charging Stations
 @app.route('/api/vehicle-charging-stations', methods=['GET'])
 def get_vehicle_charging_stations_data():
     # Forward request to the actual API
@@ -184,7 +183,7 @@ def get_vehicle_charging_stations_data():
         return jsonify({"error": str(e)}), 500
 
 
-
+# Get Cafeto Data
 @app.route('/api/cafeto-data', methods=['GET'])
 def get_cafeto_data():
     # Forward request to the actual API
@@ -198,7 +197,7 @@ def get_cafeto_data():
         return jsonify({"error": str(e)}), 500
     
 
-
+# Get Air Conditioned Places Data
 @app.route('/api/air-conditioned-places', methods=['GET'])
 def get_air_conditioned_data():
     # Forward request to the actual API
@@ -219,6 +218,6 @@ def logout():
     return redirect("/login")
 
 
-
+# Run the app
 if __name__ == '__main__':
     app.run(debug=True)
