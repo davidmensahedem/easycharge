@@ -37,8 +37,6 @@ $(document).ready(function () {
     badge.addTo(map);
   }, 5000);
 
-  // Refresh map
-
   // Add a blue bootstrap badge
   var refreshBadge = L.control({ position: "bottomright" });
 
@@ -76,9 +74,6 @@ $(document).ready(function () {
   let vehicleChargingStationCount = 0;
   let coolPlacesCount = 0;
   let cafeToCount = 0;
-
-  // Add map features
-  //
 
   /*
     Add the police stations layer
@@ -152,7 +147,7 @@ $(document).ready(function () {
   */
 
   /*
-    Add cafeto locations
+    Add Cafeto locations
   */
 
   const cafeToLayer = L.markerClusterGroup();
@@ -178,7 +173,7 @@ $(document).ready(function () {
   });
 
   /*
-    End of add cafeto locations
+    End of add Cafeto locations
   */
 
   /*
@@ -266,7 +261,6 @@ $(document).ready(function () {
   // add base map layers
   const baseLayers = {
     "Police Stations": policeStationLayer,
-    // "Vehicle Charging Stations": vehicleChargingStationLayer,
     "Cafeto Locations": cafeToLayer,
     "Cool Places": coolPlacesStationLayer,
   };
