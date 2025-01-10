@@ -79,9 +79,11 @@ $(document).ready(function () {
     Add the police stations layer
   */
 
+  let baseUrl = "http://127.0.0.1:5000";
+
   const policeStationLayer = L.markerClusterGroup();
 
-  L.geoJSON.ajax("http://127.0.0.1:5000/api/police-stations", {
+  L.geoJSON.ajax(`${baseUrl}/api/police-stations`, {
     onEachFeature: function (feature) {
       policeStationCount++;
     },
@@ -113,7 +115,7 @@ $(document).ready(function () {
   */
   const vehicleChargingStationLayer = L.markerClusterGroup();
 
-  L.geoJSON.ajax("http://127.0.0.1:5000/api/vehicle-charging-stations", {
+  L.geoJSON.ajax(`${baseUrl}/api/vehicle-charging-stations`, {
     pointToLayer: function (feature, latlng) {
       let marker = L.marker(latlng, {
         icon: L.icon({
@@ -152,7 +154,7 @@ $(document).ready(function () {
 
   const cafeToLayer = L.markerClusterGroup();
 
-  L.geoJSON.ajax("http://127.0.0.1:5000/api/cafeto-data", {
+  L.geoJSON.ajax(`${baseUrl}/api/cafeto-data`, {
     pointToLayer: function (feature, latlng) {
       let marker = L.circleMarker(latlng, {
         radius: 5,
@@ -181,7 +183,7 @@ $(document).ready(function () {
   */
   const coolPlacesStationLayer = L.markerClusterGroup();
 
-  L.geoJSON.ajax("http://127.0.0.1:5000/api/air-conditioned-places", {
+  L.geoJSON.ajax(`${baseUrl}/api/air-conditioned-places`, {
     pointToLayer: function (feature, latlng) {
       let marker = L.circleMarker(latlng, {
         radius: 5,
@@ -392,7 +394,7 @@ $(document).ready(function () {
     }
 
     // Fetch GeoJSON data and process
-    fetch("http://127.0.0.1:5000/api/vehicle-charging-stations")
+    fetch(`${baseUrl}/api/vehicle-charging-stations`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
