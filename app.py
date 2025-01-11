@@ -64,6 +64,7 @@ def login():
             return render_template("login.html")
         
     except SQLAlchemyError as e:
+        # print error
         print(str(e))
   
 
@@ -210,13 +211,11 @@ def get_air_conditioned_data():
     except requests.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
-
 # Logout Page
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/login")
-
 
 # Run the app
 if __name__ == '__main__':
